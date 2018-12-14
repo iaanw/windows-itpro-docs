@@ -45,6 +45,8 @@ You can use the following sources:
 -   The [Microsoft Malware Protection Center definitions page (MMPC)](https://www.microsoft.com/security/portal/definitions/adl.aspx)
 
 
+
+
 When updates are published, some logic will be applied to minimize the size of the update. In most cases, only the "delta" (or the differences between the latest update and the update that is currently installed on the endpoint) will be downloaded and applied. However, the size of the delta depends on:
 
 - How old the current update on the endpoint is
@@ -55,11 +57,13 @@ The older the updates on an endpoint, the larger the download. However, you must
 
 Microsoft Update allows for rapid releases, which means it will download small deltas on a frequent basis. This ensures the best protection, but may increase network bandwidth.
 
-The WSUS, Configuration Manager, and MMPC sources will deliver less frequent updates. The size of the updates may be slightly larger than the frequent release from Microsoft Update (as the delta, or differences between the latest version and what is on the endpoint will be larger). This ensures consistent protection without increasing ad hoc network usage (although the amount of data may be the same or increased as the updates will be fewer, but may be slightly larger).
+The WSUS and Configuration Manager sources will deliver less frequent updates, typically around once every eight hours. The size of the updates may be slightly larger than the more frequent release from Microsoft Update (as the delta, or differences between the latest version and what is on the endpoint will be larger). This ensures consistent protection without increasing ad hoc network usage (although the amount of data may be the same or increased as the updates will be fewer, but may be slightly larger).
 
 > [!IMPORTANT]
 > If you have set MMPC as a fallback source after WSUS or Microsoft Update, updates will only be downloaded from MMPC when the current update is considered to be out-of-date (by default, this is 2 consecutive days of not being able to apply updates from the WSUS or Microsoft Update services).
 > You can, however, [set the number of days before protection is reported as out-of-date](https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/manage-outdated-endpoints-windows-defender-antivirus#set-the-number-of-days-before-protection-is-reported-as-out-of-date).
+
+You can also [manually download updates from the WDSI site](https://www.microsoft.com/en-us/wdsi/definitions) - updates are published there roughly every once to three hours.
 
 Each source has typical scenarios that depend on how your network is configured, in addition to how often they publish updates, as described in the following table:
 
